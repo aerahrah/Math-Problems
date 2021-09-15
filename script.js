@@ -45,8 +45,9 @@ document.querySelector('.check').addEventListener('click', function () {
 
   if (!guess) {
     displayMessage('⛔️ No number!');
-
-    // When player wins
+  }
+   else if (document.querySelector('.number').textContent === '-' ) {
+    displayMessage('Click start first');
   } else if (guess === CheckAnswer) {
     if (Tquestion <= 25) {
       score++;
@@ -63,9 +64,9 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   } else if (guess !== CheckAnswer) {
     if (Tquestion <= 25) {
-      question();
-      displayMessage(`❌ Wrong answer correct: ${CheckAnswer}`);
+      displayMessage(`❌ Wrong answer correct for:\n ${AnswerText} is ${CheckAnswer}`);
       document.querySelector('.score').textContent = score;
+      question();
       Tquestion++;
     } else {
       displayMessage('🎉 Click Start to Start Again');
