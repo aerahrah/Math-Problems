@@ -38,10 +38,14 @@ function question() {
 const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
+document.querySelector('.next').addEventListener('click', function () {
+  displayMessage('Start Answering...');
+  document.querySelector('.guess').value = '';
+  question();
 
+});
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
-  console.log(guess, typeof guess);
 
   if (!guess) {
     displayMessage('⛔️ No number!');
@@ -53,7 +57,6 @@ document.querySelector('.check').addEventListener('click', function () {
       score++;
       displayMessage('🎉 Correct Answer!');
       document.querySelector('.score').textContent = score;
-      question();
       Tquestion++;
     } else {
       displayMessage('🎉 Click Start to Start Again');
@@ -64,9 +67,8 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   } else if (guess !== CheckAnswer) {
     if (Tquestion <= 25) {
-      displayMessage(`❌ Wrong answer... Correct Answer for:\n ${AnswerText} is ${CheckAnswer}`);
+      displayMessage(`❌ Wrong answer... Correct Asnwer for: ${AnswerText} is ${CheckAnswer}`);
       document.querySelector('.score').textContent = score;
-      question();
       Tquestion++;
     } else {
       displayMessage('🎉 Click Start to Start Again');
