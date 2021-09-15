@@ -133,13 +133,13 @@ h1 {
     }
     p{
       font-size: 1.3rem;
-      line-height: 20px;
+      line-height: 2rem;
     }
     h1 {
       font-size: 3rem;
     }
     .btn {
-      font-size: 1.2rem;
+      font-size: .75rem;
       padding: 1rem 1.2rem;
     }
   
