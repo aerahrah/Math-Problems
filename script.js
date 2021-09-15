@@ -64,7 +64,7 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   } else if (guess !== CheckAnswer) {
     if (Tquestion <= 25) {
-      displayMessage(`❌ Wrong answer correct for:\n ${AnswerText} is ${CheckAnswer}`);
+      displayMessage(`❌ Wrong answer... Correct Answer for:\n ${AnswerText} is ${CheckAnswer}`);
       document.querySelector('.score').textContent = score;
       question();
       Tquestion++;
