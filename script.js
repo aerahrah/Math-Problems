@@ -39,43 +39,49 @@ const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
 document.querySelector('.next').addEventListener('click', function () {
+  document.querySelector('.check').disabled = false;
   displayMessage('Start Answering...');
   document.querySelector('.guess').value = '';
   question();
-
 });
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
 
   if (!guess) {
     displayMessage('⛔️ No number!');
-  }
-   else if (document.querySelector('.number').textContent === '-' ) {
+  } else if (document.querySelector('.number').textContent === '-') {
     displayMessage('Click start first');
   } else if (guess === CheckAnswer) {
     if (Tquestion <= 25) {
       score++;
+      Tquestion++;
       displayMessage('🎉 Correct Answer!');
       document.querySelector('.score').textContent = score;
-      Tquestion++;
+      document.querySelector('.check').disabled = true;
     } else {
       displayMessage('🎉 Click Start to Start Again');
       document.querySelector('.score').textContent = score;
       document.querySelector('.highscore').textContent = score;
-      document.querySelector('.between').textContent = 'Love you max';
       document.querySelector('body').style.backgroundColor = '#1E6F5C';
+      if (score === 25) {
+        document.querySelector('.between').textContent = 'Love you max';
+      }
     }
   } else if (guess !== CheckAnswer) {
     if (Tquestion <= 25) {
-      displayMessage(`❌ Wrong answer... Correct Asnwer for: ${AnswerText} is ${CheckAnswer}`);
+      displayMessage(
+        `❌ Wrong answer... Correct Asnwer for: ${AnswerText} is ${CheckAnswer}`
+      );
       document.querySelector('.score').textContent = score;
       Tquestion++;
     } else {
       displayMessage('🎉 Click Start to Start Again');
       document.querySelector('.score').textContent = score;
       document.querySelector('.highscore').textContent = score;
-      document.querySelector('.between').textContent = 'Love you max';
       document.querySelector('body').style.backgroundColor = '#1E6F5C';
+      if (score === 25) {
+        document.querySelector('.between').textContent = 'Love you max';
+      }
     }
   }
 });
