@@ -42,6 +42,7 @@ document.querySelector('.next').addEventListener('click', function () {
   document.querySelector('.check').disabled = false;
   displayMessage('Start Answering...');
   document.querySelector('.guess').value = '';
+  document.querySelector('body').style.backgroundColor = '#222';
   question();
 });
 document.querySelector('.check').addEventListener('click', function () {
@@ -52,23 +53,24 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (document.querySelector('.number').textContent === '-') {
     displayMessage('Click start first');
   } else if (guess === CheckAnswer) {
-    if (Tquestion <= 25) {
+    if (Tquestion < 25) {
       score++;
       Tquestion++;
       displayMessage('🎉 Correct Answer!');
       document.querySelector('.score').textContent = score;
       document.querySelector('.check').disabled = true;
+      document.querySelector('body').style.backgroundColor = '#1E6F5C';
     } else {
       displayMessage('🎉 Click Start to Start Again');
       document.querySelector('.score').textContent = score;
       document.querySelector('.highscore').textContent = score;
       document.querySelector('body').style.backgroundColor = '#1E6F5C';
       if (score === 25) {
-        document.querySelector('.between').textContent = 'Love you max';
+        document.querySelector('.between').textContent = 'dagitamann';
       }
     }
   } else if (guess !== CheckAnswer) {
-    if (Tquestion <= 25) {
+    if (Tquestion < 25) {
       displayMessage(
         `❌ Wrong answer... Correct Asnwer for: ${AnswerText} is ${CheckAnswer}`
       );
