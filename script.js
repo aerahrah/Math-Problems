@@ -71,6 +71,7 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   } else if (guess !== CheckAnswer) {
     if (Tquestion < 25) {
+      document.querySelector('body').style.backgroundColor = '#7D0633';
       displayMessage(
         `❌ Wrong answer... Correct Asnwer for: ${AnswerText} is ${CheckAnswer}`
       );
