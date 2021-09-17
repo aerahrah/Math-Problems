@@ -82,7 +82,7 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.highscore').textContent = score;
       document.querySelector('body').style.backgroundColor = '#1E6F5C';
       if (score === 25) {
-        document.querySelector('.between').textContent = 'Love you max';
+        document.querySelector('.between').textContent = 'dagitamann';
       }
     }
   }
